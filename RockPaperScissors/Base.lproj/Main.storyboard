@@ -74,7 +74,17 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U67-SM-nsr"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0s-Gf-emt">
+                                <rect key="frame" x="322" y="79" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -87,6 +97,8 @@
                     </view>
                     <connections>
                         <outlet property="computersChoiceLabel" destination="xXW-v4-Y9W" id="fVh-bh-p0f"/>
+                        <outlet property="countdownLabel" destination="M0s-Gf-emt" id="m08-rq-38f"/>
+                        <outlet property="startButton" destination="vkM-yk-5QW" id="AOL-2q-H4O"/>
                         <outlet property="winnerLabel" destination="T4v-yw-aIt" id="YJa-9k-VVd"/>
                     </connections>
                 </viewController>

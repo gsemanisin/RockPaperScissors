@@ -13,9 +13,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var computersChoiceLabel: UILabel!
     @IBOutlet weak var winnerLabel: UILabel!
     
+    @IBOutlet weak var countdownLabel: UILabel!
+    
+    @IBOutlet weak var startButton: UIButton!
+    
+    
     var choices = ["Rock", "Paper", "Scissors"]
     var playersChoice : String?
     var computersChoice : String?
+    
+    var timer: Timer?
+    var timeLeft = 3
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +83,7 @@ class ViewController: UIViewController {
                 winner = "tie"
             }
         default:
-            break
+            winner = "computer"
         }
         
         computersChoiceLabel.text = "Computer choose " + computersChoice!
@@ -88,6 +96,25 @@ class ViewController: UIViewController {
         present(svc, animated: true, completion: nil)
     }
     
+    @IBAction func startButtonPressed(_ sender: Any) {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
+        startButton.isEnabled = false
+    }
+    
+    @objc func countdown(){
+        
+        countdownLabel.text = "\(timeLeft)"
+        timeLeft -= 1
+        
+        
+        if timeLeft < 0 {
+            timer?.invalidate()
+            timer = nil
+            startButton.isEnabled = true
+            timeLeft = 3
+        }
+        
+    }
     
 }
 
