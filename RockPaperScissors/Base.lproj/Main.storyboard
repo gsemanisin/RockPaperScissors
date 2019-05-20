@@ -46,6 +46,7 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Msk-HK-7uw" appends="YES" id="xt5-cX-0J7"/>
+                                    <outletCollection property="gestureRecognizers" destination="vTj-3I-baQ" appends="YES" id="qkg-h8-X5l"/>
                                 </connections>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXW-v4-Y9W">
@@ -134,6 +135,11 @@
                         <action selector="doubleTap:" destination="BYZ-38-t0r" id="4Ji-df-DcD"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="vTj-3I-baQ">
+                    <connections>
+                        <action selector="longPress:" destination="BYZ-38-t0r" id="IOa-vK-tJd"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>

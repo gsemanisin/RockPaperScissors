@@ -68,7 +68,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             
-            var myPickerController = UIImagePickerController()
+            let myPickerController = UIImagePickerController()
             
             myPickerController.delegate = self
             myPickerController.sourceType = .savedPhotosAlbum
@@ -78,6 +78,23 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
 
+    @IBAction func longPress(_ sender: UILongPressGestureRecognizer) {
+        let selectedPoint = sender.location(in: stackView)
+        for imageView in imageViews {
+            if imageView.frame.contains(selectedPoint){
+                selectedImageView = imageView
+            }
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            
+            let myPickerController = UIImagePickerController()
+            
+            myPickerController.delegate = self
+            myPickerController.sourceType = .camera
+            
+            present(myPickerController, animated: true, completion: nil)
+        }
+    }
     
     func whoWins() {
         let choice = CGFloat.random(in: (0...2))
