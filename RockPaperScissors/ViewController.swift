@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
     @IBOutlet weak var computersChoiceLabel: UILabel!
@@ -81,7 +82,12 @@ class ViewController: UIViewController {
         winnerLabel.text = "Winner is " + winner
     }
     
-   
+    @IBAction func onRulesPressed(_ sender: Any) {
+        let url = URL(string: "https://www.wrpsa.com/the-official-rules-of-rock-paper-scissors/")
+        let svc = SFSafariViewController(url: url!)
+        present(svc, animated: true, completion: nil)
+    }
+    
     
 }
 
