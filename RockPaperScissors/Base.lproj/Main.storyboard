@@ -21,21 +21,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ljZ-qb-xWD">
                                 <rect key="frame" x="50" y="134" width="314" height="487"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rock" translatesAutoresizingMaskIntoConstraints="NO" id="EK2-kf-3h4">
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rock" translatesAutoresizingMaskIntoConstraints="NO" id="EK2-kf-3h4">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="162.5"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="EWE-b3-EtV" appends="YES" id="Y96-Gc-Yb2"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper" translatesAutoresizingMaskIntoConstraints="NO" id="OMu-wG-V7w">
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper" translatesAutoresizingMaskIntoConstraints="NO" id="OMu-wG-V7w">
                                         <rect key="frame" x="0.0" y="162.5" width="314" height="162"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="hRc-dN-bJw" appends="YES" id="9Ao-Oq-GDm"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scissors" translatesAutoresizingMaskIntoConstraints="NO" id="NWs-Ru-kOJ">
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scissors" translatesAutoresizingMaskIntoConstraints="NO" id="NWs-Ru-kOJ">
                                         <rect key="frame" x="0.0" y="324.5" width="314" height="162.5"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -78,7 +78,7 @@
                                     <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U67-SM-nsr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0s-Gf-emt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0s-Gf-emt">
                                 <rect key="frame" x="322" y="79" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -98,6 +98,9 @@
                     <connections>
                         <outlet property="computersChoiceLabel" destination="xXW-v4-Y9W" id="fVh-bh-p0f"/>
                         <outlet property="countdownLabel" destination="M0s-Gf-emt" id="m08-rq-38f"/>
+                        <outlet property="paperImage" destination="OMu-wG-V7w" id="byi-uP-Jps"/>
+                        <outlet property="rockImage" destination="EK2-kf-3h4" id="OTx-SS-58X"/>
+                        <outlet property="scissorsImage" destination="NWs-Ru-kOJ" id="N25-CX-cEm"/>
                         <outlet property="startButton" destination="vkM-yk-5QW" id="AOL-2q-H4O"/>
                         <outlet property="winnerLabel" destination="T4v-yw-aIt" id="YJa-9k-VVd"/>
                     </connections>
