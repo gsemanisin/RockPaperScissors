@@ -23,16 +23,18 @@ class ViewController: UIViewController {
 
     @IBAction func rockPressed(_ sender: Any) {
         playersChoice = choices[0]
-        
+        print(playersChoice)
         whoWins()
     }
     
     @IBAction func paperPressed(_ sender: Any) {
         playersChoice = choices[1]
+        whoWins()
     }
     
     @IBAction func scissorsPressed(_ sender: Any) {
         playersChoice = choices[2]
+        whoWins()
     }
     
     func whoWins() {
@@ -51,10 +53,35 @@ class ViewController: UIViewController {
             else {
                 winner = "player"
             }
+        case "Paper":
+            if computersChoice == "Rock" {
+                winner = "player"
+            }
+            else if computersChoice == "Paper" {
+                winner = "tie"
+            }
+            else {
+                winner = "computer"
+            }
+        case "Scissors":
+            if computersChoice == "Rock" {
+                winner = "computer"
+            }
+            else if computersChoice == "Paper" {
+                winner = "player"
+            }
+            else {
+                winner = "tie"
+            }
         default:
             break
         }
+        
+        computersChoiceLabel.text = "Computer choose " + computersChoice!
+        winnerLabel.text = "Winner is " + winner
     }
+    
+   
     
 }
 
