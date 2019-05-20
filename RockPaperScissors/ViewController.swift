@@ -18,24 +18,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var paperImage: UIImageView!
     @IBOutlet weak var scissorsImage: UIImageView!
     
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet var imageViews: [UIImageView]!
     var choices = ["Rock", "Paper", "Scissors"]
     var playersChoice : String?
     var computersChoice : String?
     var timer: Timer?
     var timeLeft = 3
+    var selectedImageView: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let rockTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
-        rockTap.numberOfTapsRequired = 2
-        rockImage.addGestureRecognizer(rockTap)
-        let paperTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
-        paperTap.numberOfTapsRequired = 2
-        paperImage.addGestureRecognizer(paperTap)
-        let scissorsTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
-        scissorsTap.numberOfTapsRequired = 2
-        scissorsImage.addGestureRecognizer(scissorsTap)
         
     }
 
@@ -66,11 +59,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         whoWins()
     }
     
-    @objc func doubleTapped() {
+    @IBAction func doubleTap(_ sender: UITapGestureRecognizer) {
+        let selectedPoint = sender.location(in: stackView)
+        for imageView in imageViews {
+            if imageView.frame.contains(selectedPoint){
+                selectedImageView = imageView
+            }
+        }
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             
             var myPickerController = UIImagePickerController()
-
+            
             myPickerController.delegate = self
             myPickerController.sourceType = .savedPhotosAlbum
             myPickerController.allowsEditing = false
@@ -78,6 +77,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             present(myPickerController, animated: true, completion: nil)
         }
     }
+
     
     func whoWins() {
         let choice = CGFloat.random(in: (0...2))
@@ -150,11 +150,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        rockImage.image = image
-        dismiss(animated:true, completion: nil)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            selectedImageView?.image = image
+        }
+        dismiss(animated: true, completion: nil)
     }
-    
 }
 

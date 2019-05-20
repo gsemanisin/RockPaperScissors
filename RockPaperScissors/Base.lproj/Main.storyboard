@@ -28,14 +28,14 @@
                                             <outletCollection property="gestureRecognizers" destination="EWE-b3-EtV" appends="YES" id="Y96-Gc-Yb2"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper" translatesAutoresizingMaskIntoConstraints="NO" id="OMu-wG-V7w">
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper" translatesAutoresizingMaskIntoConstraints="NO" id="OMu-wG-V7w">
                                         <rect key="frame" x="0.0" y="162.5" width="314" height="162"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="hRc-dN-bJw" appends="YES" id="9Ao-Oq-GDm"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scissors" translatesAutoresizingMaskIntoConstraints="NO" id="NWs-Ru-kOJ">
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scissors" translatesAutoresizingMaskIntoConstraints="NO" id="NWs-Ru-kOJ">
                                         <rect key="frame" x="0.0" y="324.5" width="314" height="162.5"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -43,6 +43,10 @@
                                         </connections>
                                     </imageView>
                                 </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Msk-HK-7uw" appends="YES" id="xt5-cX-0J7"/>
+                                </connections>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXW-v4-Y9W">
                                 <rect key="frame" x="107" y="658" width="200" height="47"/>
@@ -101,8 +105,12 @@
                         <outlet property="paperImage" destination="OMu-wG-V7w" id="byi-uP-Jps"/>
                         <outlet property="rockImage" destination="EK2-kf-3h4" id="OTx-SS-58X"/>
                         <outlet property="scissorsImage" destination="NWs-Ru-kOJ" id="N25-CX-cEm"/>
+                        <outlet property="stackView" destination="ljZ-qb-xWD" id="dbz-Ei-pVm"/>
                         <outlet property="startButton" destination="vkM-yk-5QW" id="AOL-2q-H4O"/>
                         <outlet property="winnerLabel" destination="T4v-yw-aIt" id="YJa-9k-VVd"/>
+                        <outletCollection property="imageViews" destination="EK2-kf-3h4" collectionClass="NSMutableArray" id="swo-7H-qln"/>
+                        <outletCollection property="imageViews" destination="OMu-wG-V7w" collectionClass="NSMutableArray" id="gYU-6P-E8W"/>
+                        <outletCollection property="imageViews" destination="NWs-Ru-kOJ" collectionClass="NSMutableArray" id="H6N-C6-AL3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -119,6 +127,11 @@
                 <tapGestureRecognizer id="5tf-aI-hMc">
                     <connections>
                         <action selector="scissorsPressed:" destination="BYZ-38-t0r" id="USn-fb-SKz"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Msk-HK-7uw">
+                    <connections>
+                        <action selector="doubleTap:" destination="BYZ-38-t0r" id="4Ji-df-DcD"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
