@@ -20,7 +20,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet var imageViews: [UIImageView]!
-    var choices = ["Rock", "Paper", "Scissors"]
+    var choices = ["Rock", "Paper", "Scissors","nada"]
     var playersChoice : String?
     var computersChoice : String?
     var timer: Timer?
@@ -39,6 +39,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         startButton.isEnabled = true
         timeLeft = 3
         whoWins()
+        playersChoice = choices[3]
     }
     
     @IBAction func paperPressed(_ sender: Any) {
@@ -48,6 +49,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         startButton.isEnabled = true
         timeLeft = 3
         whoWins()
+        playersChoice = choices[3]
     }
     
     @IBAction func scissorsPressed(_ sender: Any) {
@@ -57,6 +59,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         startButton.isEnabled = true
         timeLeft = 3
         whoWins()
+        playersChoice = choices[3]
     }
     
     @IBAction func doubleTap(_ sender: UITapGestureRecognizer) {
